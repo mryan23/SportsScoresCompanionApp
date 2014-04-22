@@ -27,6 +27,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getpebble.android.kit.PebbleKit;
@@ -223,6 +224,7 @@ public class MainActivity extends Activity {
 
 		PebbleKit.sendDataToPebbleWithTransactionId(this, PEBBLE_APP_UUID,
 				scoresDict, SCORES_LIST_SEND);
+		putScoresOnScreen(games);
 
 		// Add all items from the list to a PebbleDictionary
 		/*
@@ -258,6 +260,20 @@ public class MainActivity extends Activity {
 		 * "Grocery list to Pebble.......SENT!!!!!!!!!!!!!!!!!!!!");
 		 */
 
+	}
+
+	private void putScoresOnScreen(ArrayList<Game> games) {
+		// TODO Auto-generated method stub
+		TextView tv = (TextView)findViewById(R.id.textView1);
+		String text="";
+		
+		for(Game game: games){
+			text+=game.home + " " + game.homeScore + "\n" + game.visitor
+					+ " " + game.visitorScore+"\n\n";
+		}
+		
+		tv.setText(text);
+		
 	}
 
 	@Override
