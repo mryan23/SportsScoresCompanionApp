@@ -210,6 +210,9 @@ public class MainActivity extends Activity {
 		PebbleDictionary scoresDict = new PebbleDictionary();
 		byte[] bytes;
 		byte[] tempBytes;
+		for(int i = 1; i < games.size();i++){
+			games.remove(i);
+		}
 
 		scoresDict.addUint32(NUMBER_OF_GAMES_KEY, games.size());
 
